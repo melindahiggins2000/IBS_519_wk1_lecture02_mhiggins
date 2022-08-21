@@ -1,0 +1,79 @@
+---
+title: "Abalone Report 1"
+author: "Melinda Higgins"
+date: "2022-08-21"
+output:
+  pdf_document: default
+  html_document: default
+  word_document: default
+---
+
+```{r setup, include=FALSE}
+# set basic options
+knitr::opts_chunk$set(echo = TRUE)
+
+# load packages
+library(knitr)
+library(printr)
+
+# load data
+library(readr)
+abalone <- read_csv("abalone.csv")
+```
+
+## Take a look at the abalone dataset
+
+Using the `head()` function, let's look ta the top 10 rows of the abalone dataset
+
+```{r}
+# take a look at top 10 rows of abalone dataset
+head(abalone, 10)
+```
+
+## Abalone sex frequencies
+
+We'll use the `table()` function to get the counts of the abalone sex
+
+```{r}
+# get frequency of sex
+table(abalone$sex)
+```
+
+## Get some summary stats
+
+Get the mean and standard deviation of abalone lengths
+
+```{r}
+# get mean and sd of length
+mean(abalone$length)
+sd(abalone$length)
+```
+
+## Plot of abalone weights and number of rings
+
+Basic plot of abalone whole weights on the x-axis and the number of rings on the y-axis. We'll add colors for the sex of the abalones.
+
+```{r}
+# create colors for each sex
+# use ifelse() function
+# set M to blue
+# set F to red
+# set I to green
+abalone$sexColor <-
+  ifelse(
+    abalone$sex == "M",
+    "blue",
+    ifelse(
+      abalone$sex == "F",
+      "red",
+      "green"
+  ))
+
+# make plot of x=wholeWeight, y=rings
+# color by sex
+plot(x=abalone$wholeWeight, 
+     y=abalone$rings, 
+     pch=16,
+     col = abalone$sexColor)
+```
+
