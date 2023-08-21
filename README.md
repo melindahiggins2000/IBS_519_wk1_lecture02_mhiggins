@@ -1,6 +1,6 @@
-# Week 1 Lecture 02: Intro to R, RStudio and Rmarkdown
+# Week 1 Lecture: Intro to R, RStudio and Rmarkdown
 
-IBS 519 Week 1 Lecture 02 by Melinda Higgins: Intro to R, RStudio and Rmarkdown
+IBS 519 Week 1 Lecture by Melinda Higgins: Intro to R, RStudio and Rmarkdown
 
 Today's class will cover:
 
